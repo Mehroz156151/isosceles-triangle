@@ -1,0 +1,31 @@
+class IsoscelesTriangle:
+    def __init__(self, side_length):
+        self.side_length = side_length
+    
+    def find_base(self):
+        # Formula to find the base of an isosceles triangle
+        base = (2 * (self.side_length ** 2 - (0.5 * self.side_length) ** 2)) ** 0.5
+        return base
+    
+    def find_height(self):
+        # Formula to find the height of an isosceles triangle
+        height = ((self.side_length ** 2) - ((self.find_base() / 2) ** 2)) ** 0.5
+        return height
+    
+    def find_area(self):
+        # Area of an isosceles triangle = 0.5 * base * height
+        area = 0.5 * self.find_base() * self.find_height()
+        return area
+    
+    def find_perimeter(self):
+        # Perimeter of an isosceles triangle = sum of all sides
+        perimeter = 2 * self.side_length + self.find_base()
+        return perimeter
+
+# Example usage:
+side_length = 5
+triangle = IsoscelesTriangle(side_length)
+print("Base of the triangle:", triangle.find_base())
+print("Height of the triangle:", triangle.find_height())
+print("Area of the triangle:", triangle.find_area())
+print("Perimeter of the triangle:", triangle.find_perimeter())
