@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class IsoscelesTriangle {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the length of the equal sides of the isosceles triangle: ");
+        double sideLength = scanner.nextDouble();
+        
+        double base = findBase(sideLength);
+        double height = findHeight(sideLength, base);
+        double area = findArea(base, height);
+        double perimeter = findPerimeter(sideLength, base);
+        
+        System.out.println("Base of the triangle: " + base);
+        System.out.println("Height of the triangle: " + height);
+        System.out.println("Area of the triangle: " + area);
+        System.out.println("Perimeter of the triangle: " + perimeter);
+        
+        scanner.close();
+    }
+    
+    public static double findBase(double sideLength) {
+        // Formula to find the base of an isosceles triangle
+        return Math.sqrt(2 * (sideLength * sideLength - (0.5 * sideLength) * (0.5 * sideLength)));
+    }
+    
+    public static double findHeight(double sideLength, double base) {
+        // Formula to find the height of an isosceles triangle
+        return Math.sqrt(sideLength * sideLength - (base / 2) * (base / 2));
+    }
+    
+    public static double findArea(double base, double height) {
+        // Area of an isosceles triangle = 0.5 * base * height
+        return 0.5 * base * height;
+    }
+    
+    public static double findPerimeter(double sideLength, double base) {
+        // Perimeter of an isosceles triangle = sum of all sides
+        return 2 * sideLength + base;
+    }
+}
